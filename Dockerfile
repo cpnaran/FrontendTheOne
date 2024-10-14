@@ -25,7 +25,6 @@ WORKDIR /app
 # Copy the built Next.js app from the builder stage
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
 
 # Set environment variable to tell Next.js we're in production mode
