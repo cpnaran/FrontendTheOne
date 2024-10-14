@@ -9,7 +9,6 @@ const Input = <T,>({
   className = "",
   label,
   required = false,
-  iconName,
   customLabel,
   maxLength,
   ...props

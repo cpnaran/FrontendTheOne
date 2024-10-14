@@ -13,10 +13,9 @@
 .wrap {
     border-radius: 12px;
     max-width: 1000px;
-    background-color: var(--error-color-1);
+    background-color: var(--white-color);
     padding: 36px;
-    
-    height: 500px;
+
 
 }
 

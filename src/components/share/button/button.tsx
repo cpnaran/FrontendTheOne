@@ -2,7 +2,6 @@ import { Button } from "antd";
 import { ButtonProps } from "./button.types";
 
 const CustomsButton = ({
-  id = null,
   className = "",
   disabled = false,
   type = "primary",

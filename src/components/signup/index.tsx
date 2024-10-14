@@ -20,7 +20,7 @@ const SignUpComponent: React.FC = () => {
           }}
         >
           {(props: FormikProps<SignUpFormKeysProps>) => {
-            return <SignupForm {...props} />;
+            return <SignupForm test={""} {...props} />;
           }}
         </Formik>
       </div>
