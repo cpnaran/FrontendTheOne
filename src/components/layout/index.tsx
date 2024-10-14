@@ -1,9 +1,10 @@
 import MainFooter from "../share/mainFooter/mainFooter";
 import { LayoutContainerProps } from "./layout.types";
 import styles from "./layout.module.css";
+import { useLayout } from "./layout.hooks";
 
 const Layout: React.FC<LayoutContainerProps> = ({ children }) => {
-  //   const { asPath, pathname, sidebar, header } = useLayout();
+  const {} = useLayout();
   return (
     <div className={styles.container}>
       <main>
