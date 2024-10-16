@@ -5,8 +5,9 @@ import { SignUpFormProps } from "./signUp.types";
 import CustomButton from "../share/button/button";
 import Input from "../share/input/input";
 import CustomsSelect from "../share/customerSelect/customSelect";
+import { onChangeFormatPhoneNumber } from "@/src/utils/type";
 
-const SignupForm = ({}: SignUpFormProps) => {
+const SignupForm = ({ setFieldValue, promotion }: SignUpFormProps) => {
   return (
     <Form className={styles.container}>
       <section>
@@ -33,17 +34,19 @@ const SignupForm = ({}: SignUpFormProps) => {
           name="phoneNumber"
           placeholder="เบอร์โทร"
           className={styles.inputstyle}
+          onChange={(e) => {
+            setFieldValue(
+              "phoneNumber",
+              onChangeFormatPhoneNumber(e.target.value)
+            );
+          }}
         />
         <CustomsSelect
           label="เลือกแพ็คเกจ"
           name="package"
           placeholder="เลือกแพ็คเกจ"
           size="large"
-          options={[
-            { value: "option1", label: "Option 1" },
-            { value: "option2", label: "Option 2" },
-            { value: "option3", label: "Option 3" },
-          ]}
+          options={promotion}
           className={styles.inputstyle}
         />
         <div className={styles.buttomstyle}>
