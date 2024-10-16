@@ -6,9 +6,13 @@ import {
 } from "@reduxjs/toolkit";
 import layoutReducer from "./slices/layout/layoutSlice";
 import { useDispatch } from "react-redux";
+import signupReducer from "./slices/signup/signupSlice"
+import optionReducer  from "./slices/option/optionSlice"
 const store = configureStore({
   reducer: {
        layout: layoutReducer,
+       signup:signupReducer,
+       option:optionReducer
   },
 });
 

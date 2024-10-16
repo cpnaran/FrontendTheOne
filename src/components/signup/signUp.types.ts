@@ -9,6 +9,12 @@ export interface SignUpFormKeysProps {
 
 
   export interface SignUpFormProps extends FormikProps<SignUpFormKeysProps> {
-    test:""
+     promotion:OptionType[]
 
+}
+
+
+export interface OptionType {
+  value: string;
+  label:string;
 }

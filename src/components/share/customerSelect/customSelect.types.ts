@@ -1,4 +1,5 @@
 import { SelectProps } from "antd/es/select";
+import { OptionType } from "../../signup/signUp.types";
 
 export interface CustomSelectProps {
   label?: string;
@@ -9,7 +10,7 @@ export interface CustomSelectProps {
   mode?: '"" | "multiple" | "tags"';
   required?: boolean;
   disabled?: boolean;
-  options: { value: string; label: string }[]; // Type for options
+  options: OptionType[]; // Type for options
   tagRender?: SelectProps['tagRender'];
   suffixIcon?: React.ReactNode;
   onChange?: (val: string | string[] ) => void;

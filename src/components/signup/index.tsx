@@ -4,8 +4,10 @@ import { initialValues } from "./signUp.utils";
 import { validationSchema } from "./signUp.validation";
 import SignupForm from "./signUp.from";
 import styles from "./signUp.module.css";
+import { useSignUp } from "./signUp.hooks";
 
 const SignUpComponent: React.FC = () => {
+  const { handleSubmit, modifiedPromotionOptions } = useSignUp();
   return (
     <div className={styles.container}>
       <h1>The ONE Parking</h1>
@@ -15,12 +17,12 @@ const SignUpComponent: React.FC = () => {
           enableReinitialize
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={(e) => {
-            console.log(e, "Dsdsd");
-          }}
+          onSubmit={handleSubmit}
         >
           {(props: FormikProps<SignUpFormKeysProps>) => {
-            return <SignupForm test={""} {...props} />;
+            return (
+              <SignupForm promotion={modifiedPromotionOptions} {...props} />
+            );
           }}
         </Formik>
       </div>
