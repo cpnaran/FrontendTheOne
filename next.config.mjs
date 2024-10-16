@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
-import nextRuntimeDotenv from 'next-runtime-dotenv';
+import nextRuntimeDotenv from "next-runtime-dotenv";
 
 const withConfig = nextRuntimeDotenv({
   public: [
-    "NEXT_PUBLIC_API_BASE_URL",  // Client-side environment variables
+    "NEXT_PUBLIC_API_BASE_URL", // Client-side environment variables
   ],
 });
 
@@ -18,9 +18,10 @@ const nextConfig = withConfig({
     "rc-tooltip",
     "rc-omit",
   ],
-   eslint: {
+  eslint: {
     ignoreDuringBuilds: true, // Ignore ESLint during builds
   },
+  output: "standalone",
 });
 
 export default nextConfig;
