@@ -2,7 +2,6 @@
 
 import { RootState } from "@/src/redux/store";
 import  { useRouter } from "next/router";
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 
@@ -13,14 +12,6 @@ export const useLayout = () => {
   const sidebar = useSelector((state: RootState) => state.layout.sidebar);
   const { pathname, asPath,locale, query } = router;
   // const dispatch = useAppDispatch();
-  useEffect(() => {
-   
-    router.push({ pathname: "/signup" });
-
-
-  
-  }, []);
-  
 
   return {
     header,
