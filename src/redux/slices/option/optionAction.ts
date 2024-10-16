@@ -3,13 +3,7 @@ import getConfig from "next/config";
 import { AppThunk } from "../../store";
 import { getOptionPackageFailure, getOptionPackageStart, getOptionPackageSuccess } from "./optionSlice";
 
-const {
-  publicRuntimeConfig: {
-    NEXT_PUBLIC_API_BASE_URL,
-    
-  },
-} = getConfig();
-
+const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export const getOptionPromotion =
   ( callback: () => void): AppThunk =>
@@ -17,7 +11,7 @@ export const getOptionPromotion =
     dispatch(getOptionPackageStart());
     try {
     const respone  =   await api.get(
-          `${NEXT_PUBLIC_API_BASE_URL}/options/packages`,
+          `${apiBaseUrl}/options/packages`,
          
         ); 
         dispatch(getOptionPackageSuccess(respone.data));

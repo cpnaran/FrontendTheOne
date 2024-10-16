@@ -4,13 +4,7 @@ import { AppThunk } from "../../store";
 import { signInStart, signInSuccess, signInFailure } from "./signupSlice";
 import { SignInRequest } from "../../types/signupSlice.types";
 
-const {
-  publicRuntimeConfig: {
-    NEXT_PUBLIC_API_BASE_URL,
-    
-  },
-} = getConfig();
-
+const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export const signIn =
   (request: SignInRequest, callback: (check:boolean) => void): AppThunk =>
@@ -19,7 +13,7 @@ export const signIn =
     console.log(request.userId,"request")
     try {
       await api.post(
-          `${NEXT_PUBLIC_API_BASE_URL}/user/submit/?userId=${request.userId}&token=${request.token}`,
+          `${apiBaseUrl}/user/submit/?userId=${request.userId}&token=${request.token}`,
           {
           fullName : request.fullName,
           telNo: request.telNo,
@@ -29,7 +23,7 @@ export const signIn =
           },
           
         ); 
-        console.log(NEXT_PUBLIC_API_BASE_URL,"NEXT_PUBLIC_API_BASE_URL")
+        console.log(apiBaseUrl,"NEXT_PUBLIC_API_BASE_URL")
         dispatch(signInSuccess());
         callback(true);
       
