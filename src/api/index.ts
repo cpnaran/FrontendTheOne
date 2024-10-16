@@ -151,6 +151,7 @@ class ApiClient {
   }
 
   public get(path: string, params?: any, config?: AxiosRequestConfig) {
+    console.log(path,path)
     const requestData = {
       ...config,
       params: {

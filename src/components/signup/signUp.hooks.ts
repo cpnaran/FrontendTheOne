@@ -7,6 +7,10 @@ import { useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { getOptionPromotion } from "@/src/redux/slices/option/optionAction";
 import { toast } from "react-toastify";
+import getConfig from "next/config";
+const {
+  publicRuntimeConfig: { NEXT_PUBLIC_API_BASE_URL },
+} = getConfig();
 
 export const useSignUp = () => {
   const router = useRouter();
@@ -14,6 +18,7 @@ export const useSignUp = () => {
   const { userId, token } = router.query;
   const optionPromotion = useSelector((state: RootState) => state.option.optionPackage);
    useEffect(()=>{
+   console.log(NEXT_PUBLIC_API_BASE_URL,"NEXT_PUBLIC_API_BASE_URL")
       dispatch(getOptionPromotion( () => {}));
     },[])
   const handleSubmit = (value: SignUpFormKeysProps) => {
