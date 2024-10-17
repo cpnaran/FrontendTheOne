@@ -7,6 +7,7 @@ import { useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { getOptionPromotion } from "@/src/redux/slices/option/optionAction";
 import { toast } from "react-toastify";
+import getConfig from "next/config";
 
 export const useSignUp = () => {
   const router = useRouter();
@@ -14,6 +15,7 @@ export const useSignUp = () => {
   const { userId, token } = router.query;
   const optionPromotion = useSelector((state: RootState) => state.option.optionPackage);
    useEffect(()=>{
+ 
       dispatch(getOptionPromotion( () => {}));
     },[])
   const handleSubmit = (value: SignUpFormKeysProps) => {

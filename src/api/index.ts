@@ -2,16 +2,14 @@ import axios, { AxiosInstance,  AxiosResponse, AxiosError, AxiosRequestConfig } 
 import getConfig from "next/config";
 import { camelizeKeys, snakeCaseKeys } from "./api.utils";
 
-const {
-  publicRuntimeConfig: { NEXT_PUBLIC_API_BASE_URL },
-} = getConfig();
+const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 
 class ApiClient {
   private http: AxiosInstance;
 
   constructor(
-    baseURL: string = `${NEXT_PUBLIC_API_BASE_URL}`,
+    baseURL: string = `${apiBaseUrl}`,
     timeout: number = 30000
   ) {
     this.http = axios.create({
@@ -151,6 +149,7 @@ class ApiClient {
   }
 
   public get(path: string, params?: any, config?: AxiosRequestConfig) {
+    console.log(path,"path")
     const requestData = {
       ...config,
       params: {
