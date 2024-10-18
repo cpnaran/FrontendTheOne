@@ -19,6 +19,7 @@ export const useSignUp = () => {
     dispatch(getOptionPromotion(() => {}));
   }, []);
   const handleSubmit = (value: SignUpFormKeysProps) => {
+      console.log(value.package,"value.package")
     const request: SignInRequest = {
       fullName: value.username,
       telNo: value.phoneNumber,
