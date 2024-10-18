@@ -10,7 +10,7 @@ const ConfirmComponent = () => {
         <h1>Success</h1>
         <p>
           สมัครเรียบร้อยแล้ว <br />
-          กรุณาสแกน qrcode ใน line
+          กรุณาสแกน qrcode จ่ายเงิน ใน Line
         </p>
       </div>
     </div>
