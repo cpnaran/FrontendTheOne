@@ -1,0 +1,44 @@
+.container {
+  min-height: calc(100vh - 68px);
+
+  @apply flex flex-col justify-center gap-6 py-6 p-0;
+}
+
+.card > h1 {
+  color: #88b04b;
+  font-weight: 900;
+  font-size: 40px;
+  margin-bottom: 10px;
+  text-align: center
+}
+
+ .card > p {
+  color: #404f5e;
+  font-size: 20px;
+  margin: 0;
+text-align: center
+}
+
+.checkmarkContainer > i {
+  color: #9abc66;
+  font-size: 100px;
+  line-height: 200px;
+  margin-left: 40px;
+}
+
+.card {
+  background: white;
+  padding: 36px;
+  border-radius: 4px;
+  box-shadow: 0 2px 3px #c8d0d8;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.checkmarkContainer {
+  border-radius: 200px;
+  height: 200px;
+  width: 200px;
+  background: #f8faf5;
+  margin: 0 auto;
+}
