@@ -1,5 +1,7 @@
 .container {
-    min-height: calc(100vh - 68px);
+   
+            min-height: calc(100vh - 68px);   
+
     @apply flex flex-col justify-center gap-6 py-6 p-0;
 }
 .container > h1 {
@@ -21,6 +23,7 @@
 
 @media screen and (max-width: 767px) {
     .container {
+           min-height: calc(100vh - 68px);
             max-width: 475px;
             padding: 24px;
             @apply w-full mx-auto;
@@ -35,6 +38,11 @@
     }
 }
 
-@media screen and (min-width: 1024px) {}
+@media screen and (min-width: 1024px) {
+    .container {
+            min-height: calc(100vh - 68px);
+           
+        }
+}
 
 @media screen and (min-width: 3840px) {}

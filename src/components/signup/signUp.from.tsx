@@ -24,7 +24,7 @@ const SignupForm = ({ setFieldValue, promotion }: SignUpFormProps) => {
           type="text"
           id="plate"
           name="plate"
-          placeholder="plate"
+          placeholder="ทะเบียนรถ"
           className={styles.inputstyle}
         />
         <Input
@@ -48,6 +48,9 @@ const SignupForm = ({ setFieldValue, promotion }: SignUpFormProps) => {
           size="large"
           options={promotion}
           className={styles.inputstyle}
+          onChange={(e) => {
+            console.log(e, "e");
+          }}
         />
         <div className={styles.buttomstyle}>
           <CustomButton block={true} htmlType="submit" size="large">

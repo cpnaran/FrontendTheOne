@@ -7,18 +7,19 @@ import { useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { getOptionPromotion } from "@/src/redux/slices/option/optionAction";
 import { toast } from "react-toastify";
-import getConfig from "next/config";
 
 export const useSignUp = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const { userId, token } = router.query;
-  const optionPromotion = useSelector((state: RootState) => state.option.optionPackage);
-   useEffect(()=>{
- 
-      dispatch(getOptionPromotion( () => {}));
-    },[])
+  const optionPromotion = useSelector(
+    (state: RootState) => state.option.optionPackage
+  );
+  useEffect(() => {
+    dispatch(getOptionPromotion(() => {}));
+  }, []);
   const handleSubmit = (value: SignUpFormKeysProps) => {
+      console.log(value.package,"value.package")
     const request: SignInRequest = {
       fullName: value.username,
       telNo: value.phoneNumber,
@@ -27,40 +28,37 @@ export const useSignUp = () => {
       userId: userId as string,
       token: token as string,
     };
-    dispatch(signIn(request, (e) => {
-        if(e) {
-        toast.success('สมัครสมาชิกเรียบร้อยแล้วกรุณาสแกน QRCODE Payment เพื่อชำระเงิน', {
-        position: "top-right",  // You can change position as needed
-        autoClose: 5000,        // Auto close after 5 seconds
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-    });
-        }else {
-        toast.error('เกิดข้อผิดพลาด กรุณากรอกข้อมูลใหม่', {
-        position: "top-right",  // You can change position as needed
-        autoClose: 5000,        // Auto close after 5 seconds
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-    });
+    
+    dispatch(
+      signIn(request, (e) => {
+        if (e) {
+          router.push({
+            pathname: `/confirm`,
+          });
+        } else {
+          toast.error("เกิดข้อผิดพลาด กรุณากรอกข้อมูลใหม่", {
+            position: "top-right", // You can change position as needed
+            autoClose: 5000, // Auto close after 5 seconds
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         }
-    }));
+      })
+    );
   };
 
-   const modifiedPromotionOptions = useMemo(() => {
+  const modifiedPromotionOptions = useMemo(() => {
     const modifiedOptions = optionPromotion.map((opt) => ({
-      value: opt.id,  
-      label: opt.package,
+      value: opt.id,
+      label: opt.package + " "+ opt.amount + " "+ "บาท",
     }));
     return modifiedOptions;
   }, [optionPromotion]);
   return {
     handleSubmit,
-    modifiedPromotionOptions
+    modifiedPromotionOptions,
   };
 };
