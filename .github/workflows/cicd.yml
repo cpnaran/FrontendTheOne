@@ -18,7 +18,7 @@ jobs:
       - name: Login to docker hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Docker Image
-        run: docker build -t theoneparking/frontend-theone  .
+        run: docker build -f Dockerfile.prod -t theoneparking/frontend-theone  .
       - name: Publish Image to docker hub
         run: docker push theoneparking/frontend-theone:latest
   deploy:
