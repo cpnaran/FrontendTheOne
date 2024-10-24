@@ -5,7 +5,9 @@ import { validationSchema } from "./edit.validation";
 import { EditFormKeysProps } from "./edit.types";
 import EditForm from "./edit.from";
 import Image from "next/image";
+import { useEdit } from "./edit.hooks";
 const EditComponent: React.FC = () => {
+  const { handleSubmit } = useEdit();
   return (
     <div className={styles.container}>
       <div
@@ -26,9 +28,7 @@ const EditComponent: React.FC = () => {
           enableReinitialize
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={(e) => {
-            console.log(e, "Dsdsd");
-          }}
+          onSubmit={handleSubmit}
         >
           {(props: FormikProps<EditFormKeysProps>) => {
             return <EditForm test={""} {...props} />;

@@ -3,8 +3,9 @@ import styles from "./edit.from.module.css";
 import CustomButton from "../share/button/button";
 import { EditFormProps } from "./edit.types";
 import Input from "../share/input/input";
+import { onChangeFormatPhoneNumber } from "@/src/utils/type";
 
-const EditForm = ({}: EditFormProps) => {
+const EditForm = ({ setFieldValue }: EditFormProps) => {
   return (
     <Form className={styles.container}>
       <section>
@@ -24,6 +25,12 @@ const EditForm = ({}: EditFormProps) => {
           name="phoneNumber"
           placeholder="เบอร์โทร"
           className={styles.inputstyle}
+          onChange={(e) => {
+            setFieldValue(
+              "phoneNumber",
+              onChangeFormatPhoneNumber(e.target.value)
+            );
+          }}
         />
         <div className={styles.buttomstyle}>
           <CustomButton block={true} htmlType="submit" size="large">
