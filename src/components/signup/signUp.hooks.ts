@@ -36,7 +36,7 @@ export const useSignUp = () => {
           router.push({
             pathname: `/confirm`,
              query:{
-              page:PAGE_TYPE.SUMMIT
+              page:PAGE_TYPE.SUBMIT
              } 
           });
         } else {
