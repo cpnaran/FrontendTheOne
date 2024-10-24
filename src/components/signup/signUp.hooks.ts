@@ -7,6 +7,7 @@ import { useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { getOptionPromotion } from "@/src/redux/slices/option/optionAction";
 import { toast } from "react-toastify";
+import { PAGE_TYPE } from "@/src/utils/type";
 
 export const useSignUp = () => {
   const router = useRouter();
@@ -34,6 +35,9 @@ export const useSignUp = () => {
         if (e) {
           router.push({
             pathname: `/confirm`,
+             query:{
+              page:PAGE_TYPE.SUMMIT
+             } 
           });
         } else {
           toast.error("เกิดข้อผิดพลาด กรุณากรอกข้อมูลใหม่", {
