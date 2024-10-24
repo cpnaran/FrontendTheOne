@@ -12,7 +12,7 @@ const ConfirmComponent = () => {
         </div>
         <h1>Success</h1>
 
-        {page === PAGE_TYPE.SUMMIT && (
+        {page === PAGE_TYPE.SUBMIT && (
           <p>
             สมัครเรียบร้อยแล้ว <br />
             กรุณาสแกน qrcode จ่ายเงิน ใน Line

@@ -55,5 +55,5 @@ export function onChangeFormatPhoneNumber(inputValue: string) {
 
 export enum PAGE_TYPE {
   EDIT = "EDIT",
-  SUMMIT ="SUMMIT"
+  SUBMIT="SUBMIT"
 }
