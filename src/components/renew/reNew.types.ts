@@ -1,4 +1,5 @@
 import { FormikProps } from "formik";
+import { OptionType } from "../signup/signUp.types";
 
 export interface ReNewFormKeysProps {
     plate:string;
@@ -6,6 +7,10 @@ export interface ReNewFormKeysProps {
   }
 
 
-  export interface reNewFormProps extends FormikProps<ReNewFormKeysProps> {
-    test:""
+  export interface ReNewFormProps extends FormikProps<ReNewFormKeysProps> {
+      promotion:OptionType[]
+      license:OptionType[]
 }
+
+
+ 

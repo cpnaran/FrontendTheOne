@@ -23,6 +23,11 @@ const ConfirmComponent = () => {
             แก้ไขเรียบร้อยแล้ว <br />
           </p>
         )}
+        {page === PAGE_TYPE.RENEW && (
+          <p>
+            ต่ออายุแพ็คเกจเรียบร้อยแล้ว <br />
+          </p>
+        )}
       </div>
     </div>
   );
