@@ -4,10 +4,24 @@ import { initialValues } from "./reNew.utils";
 import { ReNewFormKeysProps } from "./reNew.types";
 import { validationSchema } from "./reNew.validation";
 import ReNewForm from "./reNew.from";
-
+import { useRenew } from "./reNew.hooks";
+import Image from "next/image";
 const ReNewComponent: React.FC = () => {
+  const { modifiedPromotionOptions, modifiedLicenseOptions, handleSubmit } =
+    useRenew();
   return (
     <div className={styles.container}>
+      <div
+        style={{
+          width: "100%",
+          position: "relative",
+          justifyContent: "center",
+          display: "flex",
+          paddingTop: "24px",
+        }}
+      >
+        <Image src={"/images/logo_one.png"} width={150} height={150} alt={""} />
+      </div>
       <h2>แบบฟอร์มต่อทะเบียนสมาชิก</h2>
       <h1>The ONE Parking</h1>
       <div className={styles.wrap}>
@@ -15,12 +29,16 @@ const ReNewComponent: React.FC = () => {
           enableReinitialize
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={(e) => {
-            console.log(e, "Dsdsd");
-          }}
+          onSubmit={handleSubmit}
         >
           {(props: FormikProps<ReNewFormKeysProps>) => {
-            return <ReNewForm test={""} {...props} />;
+            return (
+              <ReNewForm
+                promotion={modifiedPromotionOptions}
+                license={modifiedLicenseOptions}
+                {...props}
+              />
+            );
           }}
         </Formik>
       </div>

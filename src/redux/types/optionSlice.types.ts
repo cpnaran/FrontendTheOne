@@ -2,6 +2,7 @@ export interface OptionState {
   error:string|null;
   loading:boolean
   optionPackage:OptionPackageState[]
+  optionLicense:OptionLicenseState[]
 }
 
 
@@ -12,3 +13,17 @@ export interface OptionPackageState{
    days:number;
 }
 
+
+
+
+export interface OptionLicenseState{
+   id:string;
+   userId:string;
+   license:string;
+   paymentState:string;
+}
+
+
+export interface OptionLicenseRequest {
+  userId:string;
+}

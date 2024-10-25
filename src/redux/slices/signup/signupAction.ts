@@ -1,5 +1,4 @@
 import api from "@/src/api";
-import getConfig from "next/config";
 import { AppThunk } from "../../store";
 import { signInStart, signInSuccess, signInFailure } from "./signupSlice";
 import { SignInRequest } from "../../types/signupSlice.types";
