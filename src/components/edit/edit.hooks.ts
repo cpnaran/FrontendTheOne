@@ -1,22 +1,22 @@
 import { useRouter } from "next/router";
 
 import { RootState, useAppDispatch } from "@/src/redux/store";
-import { signIn } from "@/src/redux/slices/signup/signupAction";
-import { SignInRequest } from "@/src/redux/types/signupSlice.types";
-import { useEffect, useMemo } from "react";
-import { useSelector } from "react-redux";
-import { getOptionPromotion } from "@/src/redux/slices/option/optionAction";
+
 import { toast } from "react-toastify";
 import { EditFormKeysProps } from "./edit.types";
 import { EditRequest } from "@/src/redux/types/editSlice.types";
 import { editUser } from "@/src/redux/slices/edit/editAction";
 import { PAGE_TYPE } from "@/src/utils/type";
+import { useSelector } from "react-redux";
 
 export const useEdit = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
   const { userId, token } = router.query;
 
+  const loading = useSelector(
+    (state:RootState) => state.pay.loading
+  )
   const handleSubmit = (value: EditFormKeysProps) => {
     const request: EditRequest = {
       fullName: value.name,
@@ -50,5 +50,6 @@ export const useEdit = () => {
 
   return {
     handleSubmit,
+    loading
   };
 };

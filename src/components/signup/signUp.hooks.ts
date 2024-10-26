@@ -16,6 +16,10 @@ export const useSignUp = () => {
   const optionPromotion = useSelector(
     (state: RootState) => state.option.optionPackage
   );
+  const loading =  useSelector(
+    (state: RootState) => state.signup.loading
+  );
+
   useEffect(() => {
     dispatch(getOptionPromotion(() => {}));
   }, []);
@@ -64,5 +68,6 @@ export const useSignUp = () => {
   return {
     handleSubmit,
     modifiedPromotionOptions,
+    loading,
   };
 };

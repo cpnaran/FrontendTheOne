@@ -6,8 +6,9 @@ import SignupForm from "./signUp.from";
 import styles from "./signUp.module.css";
 import { useSignUp } from "./signUp.hooks";
 import Image from "next/image";
+import LoadingScreen from "../loadingScreen/loading";
 const SignUpComponent: React.FC = () => {
-  const { handleSubmit, modifiedPromotionOptions } = useSignUp();
+  const { handleSubmit, modifiedPromotionOptions ,loading } = useSignUp();
   return (
     <div className={styles.container}>
       <div
@@ -37,6 +38,7 @@ const SignUpComponent: React.FC = () => {
           }}
         </Formik>
       </div>
+      { loading && <LoadingScreen/>}
     </div>
   );
 };

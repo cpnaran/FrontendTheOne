@@ -4,24 +4,31 @@ import { OptionLicenseRequest } from "@/src/redux/types/optionSlice.types";
 import { useRouter } from "next/router";
 import { useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
+import { PayFormKeysProps } from "./pay.types";
+import { PayRequest } from "@/src/redux/types/paySlice.types";
+import { PaySubmit } from "@/src/redux/slices/pay/payAction";
+import { PAGE_TYPE } from "@/src/utils/type";
+import { toast } from "react-toastify";
 
 export const usePay = () => {
   const router = useRouter();
 
   const dispatch = useAppDispatch();
   const { userId, token } = router.query;
-  const optionPromotion = useSelector(
-    (state: RootState) => state.option.optionPackage
-  );
+  
   const optionLicense = useSelector(
     (state: RootState) => state.option.optionLicense
   );
-  const request: OptionLicenseRequest = {
-    // userId: "U96b9e6e3c26berd9a42ef7ef4cd03e397"
-    userId: userId as string,
-  };
+   
+  const loading = useSelector(
+    (state:RootState) => state.pay.loading
+  )
 
   useEffect(() => {
+    const request: OptionLicenseRequest = {
+
+        userId: userId as string,
+      };
     dispatch(getOptionLicense(request, () => {}));
   }, []);
 
@@ -32,9 +39,43 @@ export const usePay = () => {
     }));
     return modifiedOptions;
   }, [optionLicense]);
+  
 
+
+  const handleSubmit = (value:PayFormKeysProps) => {
+ 
+    const request: PayRequest = {
+        license: value.license,   
+        userId: userId as string,
+    };
+
+    dispatch(
+        PaySubmit(request, (e) => {
+        if (e) {
+          router.push({
+            pathname: `/confirm`,
+            query: {
+              page: PAGE_TYPE.PAY,
+            },
+          });
+        } else {
+          toast.error("เกิดข้อผิดพลาด กรุณากรอกข้อมูลใหม่", {
+            position: "top-right", // You can change position as needed
+            autoClose: 5000, // Auto close after 5 seconds
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      })
+    );
+  };
 
   return {
-    modifiedLicenseOptions
+    modifiedLicenseOptions,
+    handleSubmit,
+    loading
   }
 };

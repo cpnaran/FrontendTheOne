@@ -13,7 +13,7 @@ const PayForm = ({  licenseOption }: PayFormProps) => {
       <section>
         <CustomsSelect
           label="ทะเบียนรถ"
-          name="plate"
+          name="license"
           placeholder="เลือกทะเบียนรถ"
           size="large"
           options={licenseOption}

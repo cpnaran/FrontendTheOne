@@ -4,8 +4,12 @@ import Image from "next/image";
 import { PayFormKeysProps } from "./pay.types";
 import { initialValues } from "./pay.utils";
 import { validationSchema } from "./pay.validation";
+import { usePay } from "./pay.hooks";
+import PayForm from "./pay.from";
+import LoadingScreen from "../loadingScreen/loading";
 
 const PayComponent: React.FC = () => {
+  const { handleSubmit, modifiedLicenseOptions,  loading } = usePay();
   return (
     <div className={styles.container}>
       <div
@@ -26,20 +30,16 @@ const PayComponent: React.FC = () => {
           enableReinitialize
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={() => {}}
+          onSubmit={handleSubmit}
         >
           {(props: FormikProps<PayFormKeysProps>) => {
             return (
-              <></>
-              // <ReNewForm
-              //   promotion={modifiedPromotionOptions}
-              //   license={modifiedLicenseOptions}
-              //   {...props}
-              // />
+              <PayForm licenseOption={modifiedLicenseOptions} {...props} />
             );
           }}
         </Formik>
       </div>
+      { loading && <LoadingScreen/>}
     </div>
   );
 };

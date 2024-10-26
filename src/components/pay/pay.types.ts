@@ -6,8 +6,8 @@ export interface PayFormKeysProps {
   }
 
 
-  export interface  PayFormProps  extends FormikProps< PayFormKeysProps > {
-      licenseOption:OptionType[]
+  export interface PayFormProps extends FormikProps<PayFormKeysProps> {
+    licenseOption :OptionType[]
 }
 
 

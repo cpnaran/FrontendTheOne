@@ -6,8 +6,9 @@ import { validationSchema } from "./reNew.validation";
 import ReNewForm from "./reNew.from";
 import { useRenew } from "./reNew.hooks";
 import Image from "next/image";
+import LoadingScreen from "../loadingScreen/loading";
 const ReNewComponent: React.FC = () => {
-  const { modifiedPromotionOptions, modifiedLicenseOptions, handleSubmit } =
+  const { modifiedPromotionOptions, modifiedLicenseOptions, handleSubmit,loading } =
     useRenew();
   return (
     <div className={styles.container}>
@@ -42,6 +43,7 @@ const ReNewComponent: React.FC = () => {
           }}
         </Formik>
       </div>
+      { loading && <LoadingScreen/>}
     </div>
   );
 };
