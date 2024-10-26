@@ -28,6 +28,11 @@ const ConfirmComponent = () => {
             ต่ออายุแพ็คเกจเรียบร้อยแล้ว <br />
           </p>
         )}
+         {page === PAGE_TYPE.PAY && (
+          <p>
+             กรุณาสแกน qrcode จ่ายเงิน ใน Line <br />
+          </p>
+        )}
       </div>
     </div>
   );

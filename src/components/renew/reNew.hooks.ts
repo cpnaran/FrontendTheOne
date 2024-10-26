@@ -28,6 +28,10 @@ export const useRenew = () => {
     userId: userId as string,
   };
 
+const loading = useSelector(
+  (state: RootState) => state.renew.loading
+)
+
   useEffect(() => {
     dispatch(getOptionLicense(request, () => {}));
     dispatch(getOptionPromotion(() => {}));
@@ -83,5 +87,6 @@ export const useRenew = () => {
     modifiedPromotionOptions,
     modifiedLicenseOptions,
     handleSubmit,
+    loading
   };
 };

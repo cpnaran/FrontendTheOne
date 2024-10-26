@@ -6,8 +6,9 @@ import { EditFormKeysProps } from "./edit.types";
 import EditForm from "./edit.from";
 import Image from "next/image";
 import { useEdit } from "./edit.hooks";
+import LoadingScreen from "../loadingScreen/loading";
 const EditComponent: React.FC = () => {
-  const { handleSubmit } = useEdit();
+  const { handleSubmit,loading } = useEdit();
   return (
     <div className={styles.container}>
       <div
@@ -35,6 +36,7 @@ const EditComponent: React.FC = () => {
           }}
         </Formik>
       </div>
+      { loading && <LoadingScreen/>}
     </div>
   );
 };

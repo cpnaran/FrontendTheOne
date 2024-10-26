@@ -10,13 +10,15 @@ import signupReducer from "./slices/signup/signupSlice";
 import optionReducer  from "./slices/option/optionSlice";
 import  editReducer from "./slices/edit/editSlice";
 import  renewReducer from"./slices/renew/renewSlice";
+import  payReducer from "./slices/pay/paySlice";
 const store = configureStore({
   reducer: {
        layout: layoutReducer,
        signup:signupReducer,
        option:optionReducer,
        edit:editReducer,
-       renew:renewReducer
+       renew:renewReducer,
+       pay:payReducer
   },
 });
 

@@ -1,15 +1,15 @@
 import { Formik, FormikProps } from "formik";
-import styles from "./reNew.module.css";
-import { initialValues } from "./reNew.utils";
-import { ReNewFormKeysProps } from "./reNew.types";
-import { validationSchema } from "./reNew.validation";
-import ReNewForm from "./reNew.from";
-import { useRenew } from "./reNew.hooks";
+import styles from "./pay.module.css";
 import Image from "next/image";
+import { PayFormKeysProps } from "./pay.types";
+import { initialValues } from "./pay.utils";
+import { validationSchema } from "./pay.validation";
+import { usePay } from "./pay.hooks";
+import PayForm from "./pay.from";
 import LoadingScreen from "../loadingScreen/loading";
-const ReNewComponent: React.FC = () => {
-  const { modifiedPromotionOptions, modifiedLicenseOptions, handleSubmit,loading } =
-    useRenew();
+
+const PayComponent: React.FC = () => {
+  const { handleSubmit, modifiedLicenseOptions,  loading } = usePay();
   return (
     <div className={styles.container}>
       <div
@@ -23,7 +23,7 @@ const ReNewComponent: React.FC = () => {
       >
         <Image src={"/images/logo_one.png"} width={150} height={150} alt={""} />
       </div>
-      <h2>แบบฟอร์มต่อทะเบียนสมาชิก</h2>
+      <h2>แบบจ่ายค่าปรับ</h2>
       <h1>The ONE Parking</h1>
       <div className={styles.wrap}>
         <Formik
@@ -32,13 +32,9 @@ const ReNewComponent: React.FC = () => {
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
         >
-          {(props: FormikProps<ReNewFormKeysProps>) => {
+          {(props: FormikProps<PayFormKeysProps>) => {
             return (
-              <ReNewForm
-                promotion={modifiedPromotionOptions}
-                license={modifiedLicenseOptions}
-                {...props}
-              />
+              <PayForm licenseOption={modifiedLicenseOptions} {...props} />
             );
           }}
         </Formik>
@@ -48,4 +44,4 @@ const ReNewComponent: React.FC = () => {
   );
 };
 
-export default ReNewComponent;
+export default PayComponent;
