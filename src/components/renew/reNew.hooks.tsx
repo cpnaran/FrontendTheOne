@@ -5,13 +5,17 @@ import {
   getOptionLicense,
   getOptionPromotion,
 } from "@/src/redux/slices/option/optionAction";
-import { OptionLicenseRequest } from "@/src/redux/types/optionSlice.types";
+import {
+  OptionLicenseRequest,
+  PACKAGE_TYPE,
+} from "@/src/redux/types/optionSlice.types";
 import { useSelector } from "react-redux";
 import { ReNewFormKeysProps } from "./reNew.types";
 import { RenewRequest } from "@/src/redux/types/renewSlice.types";
 import { reNewSubmit } from "@/src/redux/slices/renew/renewAction";
 import { PAGE_TYPE } from "@/src/utils/type";
 import { toast } from "react-toastify";
+import styles from "./reNew.from.module.css";
 
 export const useRenew = () => {
   const router = useRouter();
@@ -28,9 +32,7 @@ export const useRenew = () => {
     userId: userId as string,
   };
 
-const loading = useSelector(
-  (state: RootState) => state.renew.loading
-)
+  const loading = useSelector((state: RootState) => state.renew.loading);
 
   useEffect(() => {
     dispatch(getOptionLicense(request, () => {}));
@@ -71,7 +73,19 @@ const loading = useSelector(
   const modifiedPromotionOptions = useMemo(() => {
     const modifiedOptions = optionPromotion.map((opt) => ({
       value: opt.id,
-      label: opt.package + " " + opt.amount + " " + "บาท",
+      label:
+        opt.packageType === PACKAGE_TYPE.PROMOTION ? (
+          <span className={styles.customOption}>
+            <p>{opt.packageType} </p>
+            {opt.package}
+            {opt.amount} บาท
+          </span>
+        ) : (
+          <span>
+            {opt.package}
+            {opt.amount} บาท
+          </span>
+        ),
     }));
     return modifiedOptions;
   }, [optionPromotion]);
@@ -87,6 +101,6 @@ const loading = useSelector(
     modifiedPromotionOptions,
     modifiedLicenseOptions,
     handleSubmit,
-    loading
+    loading,
   };
 };

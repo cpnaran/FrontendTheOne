@@ -36,7 +36,6 @@ const CustomsSelect: FC<CustomSelectProps> = ({
       )}
       <Select
         showSearch
-        filterOption={(input, option) => (option?.label ?? "").includes(input)}
         id={name}
         className={styles.input}
         placeholder={placeholder}
