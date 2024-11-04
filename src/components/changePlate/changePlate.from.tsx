@@ -10,18 +10,6 @@ const ChangePlateForm = ({}: ChangePlateFormProps) => {
   return (
     <Form className={styles.container}>
       <section>
-        <CustomsSelect
-          label="ทะเบียนรถเดิม"
-          name="newPlate"
-          placeholder="เลือกแพ็คเกจ"
-          size="large"
-          options={[
-            { value: "option1", label: "Option 1" },
-            { value: "option2", label: "Option 2" },
-            { value: "option3", label: "Option 3" },
-          ]}
-          className={styles.inputstyle}
-        />
         <Input
           label="ทะเบียนรถใหม่"
           type="text"

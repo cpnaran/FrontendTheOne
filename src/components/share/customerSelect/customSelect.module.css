@@ -7,3 +7,15 @@
     border-color: var(--error-color-1);
     color: var(--error-color-1)
 }
+
+.customOption > p {
+  color: var(--error-color-1);
+  font-size: medium;
+  font-weight: 300;
+}
+.customOption {
+    color: #007bff;
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}

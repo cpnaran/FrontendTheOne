@@ -17,3 +17,18 @@
 
     padding-top: 24px;
 }
+
+
+
+.customOption > p {
+    color: var(--error-color-1);
+    font-weight: 600;
+    
+}
+
+.customOption {
+  
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}

@@ -1,6 +1,6 @@
 import { getOptionLicense } from "@/src/redux/slices/option/optionAction";
 import { RootState, useAppDispatch } from "@/src/redux/store";
-import { OptionLicenseRequest } from "@/src/redux/types/optionSlice.types";
+import { OptionLicenseRequest, PACKAGE_TYPE } from "@/src/redux/types/optionSlice.types";
 import { useRouter } from "next/router";
 import { useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
