@@ -8,16 +8,16 @@ import {
   getOptionPackageStart,
   getOptionPackageSuccess,
 } from "./optionSlice";
-import { OptionLicenseRequest } from "../../types/optionSlice.types";
+import { OptionLicenseRequest, OptionRequest } from "../../types/optionSlice.types";
 
 const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export const getOptionPromotion =
-  (callback: () => void): AppThunk =>
+  (request: OptionRequest,callback: () => void): AppThunk =>
   async (dispatch) => {
     dispatch(getOptionPackageStart());
     try {
-      const respone = await api.get(`${apiBaseUrl}/options/packages`);
+      const respone = await api.get(`${apiBaseUrl}/options/packages/${request.userId}`);
       dispatch(getOptionPackageSuccess(respone.data));
       callback();
     } catch (error: any) {
