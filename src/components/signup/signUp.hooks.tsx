@@ -26,10 +26,11 @@ export const useSignUp = () => {
     userId: userId as string,
   };
   useEffect(() => {
-    dispatch(getOptionPromotion(requestOption, () => {}));
-  }, []);
+    if (userId) {
+      dispatch(getOptionPromotion(requestOption, () => {}));
+    }
+  }, [userId]);
   const handleSubmit = (value: SignUpFormKeysProps) => {
-    console.log(value.package, "value.package");
     const request: SignInRequest = {
       fullName: value.username,
       telNo: value.phoneNumber,

@@ -25,12 +25,15 @@ export const usePay = () => {
   )
 
   useEffect(() => {
-    const request: OptionLicenseRequest = {
+    if(userId) {
+      const request: OptionLicenseRequest = {
 
         userId: userId as string,
       };
     dispatch(getOptionLicense(request, () => {}));
-  }, []);
+    }
+   
+  }, [userId]);
 
   const modifiedLicenseOptions = useMemo(() => {
     const modifiedOptions = optionLicense.map((opt) => ({

@@ -39,9 +39,11 @@ export const useRenew = () => {
   const loading = useSelector((state: RootState) => state.renew.loading);
 
   useEffect(() => {
-    dispatch(getOptionLicense(request, () => {}));
-    dispatch(getOptionPromotion(requestOption, () => {}));
-  }, []);
+    if (userId) {
+      dispatch(getOptionLicense(request, () => {}));
+      dispatch(getOptionPromotion(requestOption, () => {}));
+    }
+  }, [userId]);
 
   const handleSubmit = (value: ReNewFormKeysProps) => {
     const request: RenewRequest = {
