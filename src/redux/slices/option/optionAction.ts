@@ -16,6 +16,7 @@ export const getOptionPromotion =
   (request: OptionRequest,callback: () => void): AppThunk =>
   async (dispatch) => {
     dispatch(getOptionPackageStart());
+    console.log(request.userId)
     try {
       const respone = await api.get(`${apiBaseUrl}/options/packages/${request.userId}`);
       dispatch(getOptionPackageSuccess(respone.data));
