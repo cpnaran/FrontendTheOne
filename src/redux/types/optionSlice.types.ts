@@ -28,3 +28,9 @@ export enum PACKAGE_TYPE {
   STANDARD = "STANDARD",
   PROMOTION = "PROMOTION",
 }
+
+
+ export interface OptionRequest {
+    userId:string;
+  }
+  

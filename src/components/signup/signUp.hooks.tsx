@@ -8,7 +8,10 @@ import { useSelector } from "react-redux";
 import { getOptionPromotion } from "@/src/redux/slices/option/optionAction";
 import { toast } from "react-toastify";
 import { PAGE_TYPE } from "@/src/utils/type";
-import { PACKAGE_TYPE } from "@/src/redux/types/optionSlice.types";
+import {
+  OptionRequest,
+  PACKAGE_TYPE,
+} from "@/src/redux/types/optionSlice.types";
 import styles from "./signUp.from.module.css";
 export const useSignUp = () => {
   const router = useRouter();
@@ -19,11 +22,15 @@ export const useSignUp = () => {
   );
   const loading = useSelector((state: RootState) => state.signup.loading);
 
+  const requestOption: OptionRequest = {
+    userId: userId as string,
+  };
   useEffect(() => {
-    dispatch(getOptionPromotion(() => {}));
-  }, []);
+    if (userId) {
+      dispatch(getOptionPromotion(requestOption, () => {}));
+    }
+  }, [userId]);
   const handleSubmit = (value: SignUpFormKeysProps) => {
-    console.log(value.package, "value.package");
     const request: SignInRequest = {
       fullName: value.username,
       telNo: value.phoneNumber,

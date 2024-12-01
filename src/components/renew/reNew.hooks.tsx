@@ -7,6 +7,7 @@ import {
 } from "@/src/redux/slices/option/optionAction";
 import {
   OptionLicenseRequest,
+  OptionRequest,
   PACKAGE_TYPE,
 } from "@/src/redux/types/optionSlice.types";
 import { useSelector } from "react-redux";
@@ -31,13 +32,18 @@ export const useRenew = () => {
     // userId: "U96b9e6e3c26bed9a42ef7ef4cd03e397"
     userId: userId as string,
   };
-
+  const requestOption: OptionRequest = {
+    // userId: "U96b9e6e3c26bed9a42ef7ef4cd03e397"
+    userId: userId as string,
+  };
   const loading = useSelector((state: RootState) => state.renew.loading);
 
   useEffect(() => {
-    dispatch(getOptionLicense(request, () => {}));
-    dispatch(getOptionPromotion(() => {}));
-  }, []);
+    if (userId) {
+      dispatch(getOptionLicense(request, () => {}));
+      dispatch(getOptionPromotion(requestOption, () => {}));
+    }
+  }, [userId]);
 
   const handleSubmit = (value: ReNewFormKeysProps) => {
     const request: RenewRequest = {
