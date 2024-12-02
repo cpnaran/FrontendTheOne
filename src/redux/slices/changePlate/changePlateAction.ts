@@ -1,6 +1,5 @@
 import api from "@/src/api";
 import { AppThunk } from "../../store";
-
 import { EditRequest } from "../../types/editSlice.types";
 import { changePlateFailure, changePlateStart, changePlateSuccess } from "./changePlateSlice";
 import { ChangePlateRequest } from "../../types/changePlateSlice.types";

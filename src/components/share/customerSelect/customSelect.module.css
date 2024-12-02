@@ -1,11 +1,11 @@
 .input {
-    width: 100%;
+  width: 100%;
 }
 
 .error {
-    margin-top: 8px;
-    border-color: var(--error-color-1);
-    color: var(--error-color-1)
+  margin-top: 8px;
+  border-color: var(--error-color-1);
+  color: var(--error-color-1);
 }
 
 .customOption > p {
@@ -14,8 +14,14 @@
   font-weight: 300;
 }
 .customOption {
-    color: #007bff;
-    display: flex;
-    flex-direction: row;
-    gap: 6px;
+  color: #007bff;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
+
+.customDropdown {
+  white-space: normal;
+  word-break: break-word; /* เพื่อให้ตัดคำในกรณีที่ข้อความยาว */
+  line-height: 1.2; /* ปรับระยะห่างระหว่างบรรทัด */
 }
