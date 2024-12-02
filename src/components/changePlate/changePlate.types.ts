@@ -1,4 +1,5 @@
 import { FormikProps } from "formik";
+import { OptionType } from "../signup/signUp.types";
 
 export interface ChangePlateFormKeysProps {
      plate:string;
@@ -7,5 +8,5 @@ export interface ChangePlateFormKeysProps {
 
 
   export interface ChangePlateFormProps extends FormikProps<ChangePlateFormKeysProps> {
-    test:""
+     licenseOption :OptionType[]
 }

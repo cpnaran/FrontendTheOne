@@ -46,7 +46,10 @@ const CustomsSelect: FC<CustomSelectProps> = ({
         status={touched && error ? "error" : ""}
         disabled={disabled}
         size={size}
-        options={options}
+        options={options.map((option) => ({
+          ...option,
+          label: <div className={styles.customDropdown}>{option.label}</div>,
+        }))}
       />
       {meta.touched && meta.error && (
         <small className={styles.error}>{meta.error}</small>

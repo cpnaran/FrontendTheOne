@@ -13,6 +13,7 @@ import {
   PACKAGE_TYPE,
 } from "@/src/redux/types/optionSlice.types";
 import styles from "./signUp.from.module.css";
+import SvgIcon from "../share/svgIcon/svgIcon";
 export const useSignUp = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
@@ -70,14 +71,14 @@ export const useSignUp = () => {
       label:
         opt.packageType === PACKAGE_TYPE.PROMOTION ? (
           <span className={styles.customOption}>
-            <p>{opt.packageType} </p>
+            <SvgIcon icon="sales" width={20} height={20} />
             {opt.package}
-            {opt.amount} บาท
+            {} {opt.amount} บาท
           </span>
         ) : (
           <span>
             {opt.package}
-            {opt.amount} บาท
+            {} {opt.amount} บาท
           </span>
         ),
     }));

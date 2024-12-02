@@ -5,7 +5,10 @@ import { ChangePlateFormKeysProps } from "./changePlate.types";
 import ChangePlateForm from "./changePlate.from";
 import { initialValues } from "./changePlate.utils";
 import Image from "next/image";
+import { useChangePlate } from "./changePlate.hooks";
+import LoadingScreen from "../loadingScreen/loading";
 const ChangePlateComponent: React.FC = () => {
+  const { loading, modifiedLicenseOptions, handleSubmit } = useChangePlate();
   return (
     <div className={styles.container}>
       <div
@@ -26,15 +29,19 @@ const ChangePlateComponent: React.FC = () => {
           enableReinitialize
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={(e) => {
-            console.log(e, "Dsdsd");
-          }}
+          onSubmit={handleSubmit}
         >
           {(props: FormikProps<ChangePlateFormKeysProps>) => {
-            return <ChangePlateForm test={""} {...props} />;
+            return (
+              <ChangePlateForm
+                licenseOption={modifiedLicenseOptions}
+                {...props}
+              />
+            );
           }}
         </Formik>
       </div>
+      {loading && <LoadingScreen />}
     </div>
   );
 };

@@ -57,5 +57,6 @@ export enum PAGE_TYPE {
   EDIT = "EDIT",
   SUBMIT="SUBMIT",
   RENEW= "RENEW",
-  PAY="PAY"
+  PAY="PAY",
+  CHANGEPLATE="CHANGEPLATE"
 }

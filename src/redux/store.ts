@@ -11,6 +11,7 @@ import optionReducer  from "./slices/option/optionSlice";
 import  editReducer from "./slices/edit/editSlice";
 import  renewReducer from"./slices/renew/renewSlice";
 import  payReducer from "./slices/pay/paySlice";
+import changePlateReducer from "./slices/changePlate/changePlateSlice"
 const store = configureStore({
   reducer: {
        layout: layoutReducer,
@@ -18,7 +19,8 @@ const store = configureStore({
        option:optionReducer,
        edit:editReducer,
        renew:renewReducer,
-       pay:payReducer
+       pay:payReducer,
+       changePlate:changePlateReducer
   },
 });
 

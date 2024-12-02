@@ -17,6 +17,7 @@ import { reNewSubmit } from "@/src/redux/slices/renew/renewAction";
 import { PAGE_TYPE } from "@/src/utils/type";
 import { toast } from "react-toastify";
 import styles from "./reNew.from.module.css";
+import SvgIcon from "../share/svgIcon/svgIcon";
 
 export const useRenew = () => {
   const router = useRouter();
@@ -82,14 +83,14 @@ export const useRenew = () => {
       label:
         opt.packageType === PACKAGE_TYPE.PROMOTION ? (
           <span className={styles.customOption}>
-            <p>{opt.packageType} </p>
+            <SvgIcon icon="sales" width={20} height={20} />
             {opt.package}
-            {opt.amount} บาท
+            {} {opt.amount} บาท
           </span>
         ) : (
           <span>
             {opt.package}
-            {opt.amount} บาท
+            {} {opt.amount} บาท
           </span>
         ),
     }));
