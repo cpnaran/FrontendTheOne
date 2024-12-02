@@ -19,7 +19,7 @@ export const useChangePlate = () => {
     (state: RootState) => state.option.optionLicense
   );
 
-  const error = useSelector((state:RootState) => state.changePlate.error)
+ 
 
   const request: OptionLicenseRequest = {
     // userId: "U96b9e6e3c26bed9a42ef7ef4cd03e397"
@@ -52,7 +52,7 @@ const handleSubmit = (value: ChangePlateFormKeysProps) => {
     };
 
     dispatch(
-     changePlateUser(request, (e) => {
+     changePlateUser(request, (e,error) => {
         if (e) {
           router.push({
             pathname: `/confirm`,

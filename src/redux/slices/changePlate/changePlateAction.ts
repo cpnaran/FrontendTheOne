@@ -7,7 +7,7 @@ import { ChangePlateRequest } from "../../types/changePlateSlice.types";
 const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export const changePlateUser =
-  (request: ChangePlateRequest, callback: (check:boolean) => void): AppThunk =>
+  (request: ChangePlateRequest, callback: (check:boolean,error:String) => void): AppThunk =>
   async (dispatch) => {
     dispatch(changePlateStart());
     try {
@@ -16,12 +16,12 @@ export const changePlateUser =
            request
         ); 
         dispatch(changePlateSuccess());
-        callback(true);
+        callback(true,"");
     } catch (error: any) {
       const errorMessage =
-        error.response?.data?.message || "An error occurred.";
-      console.error(error);
+        error.response?.data || "An error occurred.";
+      console.error(errorMessage);
       dispatch(changePlateFailure(errorMessage));
-         callback(false);
+         callback(false, errorMessage);
     }
   };
