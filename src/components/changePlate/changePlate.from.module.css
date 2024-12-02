@@ -1,19 +1,29 @@
 .container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
-.container>section {
-    width: 100%;
-    padding: 24px;
+.container > section {
+  width: 100%;
+  padding: 24px;
 }
 
 .inputstyle {
-    width: 100%;
-    padding-top: 12px;
+  width: 100%;
+  padding-top: 12px;
 }
 
 .buttomstyle {
+  padding-top: 24px;
+}
 
-    padding-top: 24px;
+.remark {
+  padding-top: 12px;
+}
+
+.remark > p {
+  padding-top: 12px;
+  font-size: 12px;
+
+  color: var(--error-color-1);
 }
