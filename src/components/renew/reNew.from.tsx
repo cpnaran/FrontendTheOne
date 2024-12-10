@@ -13,7 +13,7 @@ const ReNewForm = ({ promotion, license }: ReNewFormProps) => {
         <CustomsSelect
           label="ทะเบียนรถ"
           name="plate"
-          placeholder="เลือกทะเบียนรถ"
+          placeholder="ตัวอย่างการเลือกทะเบียนรถ ทก1234 ไม่ต้องใส่จังหวัด"
           size="large"
           options={license}
           className={styles.inputstyle}
