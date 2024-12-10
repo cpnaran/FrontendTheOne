@@ -24,7 +24,7 @@ const SignupForm = ({ setFieldValue, promotion }: SignUpFormProps) => {
           type="text"
           id="plate"
           name="plate"
-          placeholder="ทะเบียนรถ"
+          placeholder="ตัวอย่างการเลือกทะเบียนรถ ทก1234 ไม่ต้องใส่จังหวัด"
           className={styles.inputstyle}
         />
         <Input

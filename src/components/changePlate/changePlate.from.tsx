@@ -23,7 +23,7 @@ const ChangePlateForm = ({ licenseOption }: ChangePlateFormProps) => {
           type="text"
           id="newPlate"
           name="newPlate"
-          placeholder="ทะเบียน"
+          placeholder="ตัวอย่างการเลือกทะเบียนรถ ทก1234 ไม่ต้องใส่จังหวัด"
           className={styles.inputstyle}
         />
         <div className={styles.buttomstyle}>
