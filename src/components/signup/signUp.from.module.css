@@ -27,3 +27,12 @@
   flex-direction: row;
   gap: 6px;
 }
+
+.note {
+  padding-top: 12px;
+  color: var(--error-color-1);
+  font-size: 12px;
+  font-weight: 600;
+ 
+}
+    
