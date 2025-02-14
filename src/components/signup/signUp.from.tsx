@@ -24,7 +24,7 @@ const SignupForm = ({ setFieldValue, promotion }: SignUpFormProps) => {
           type="text"
           id="plate"
           name="plate"
-          maxLength={7}
+          maxLength={6}
           placeholder="ตัวอย่าง ทก1234"
           className={styles.inputstyle}
         />
