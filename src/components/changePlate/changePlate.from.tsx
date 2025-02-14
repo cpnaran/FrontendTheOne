@@ -24,6 +24,7 @@ const ChangePlateForm = ({ licenseOption }: ChangePlateFormProps) => {
           id="newPlate"
           name="newPlate"
           placeholder="ตัวอย่าง ทก1234 "
+          maxLength={6}
           className={styles.inputstyle}
         />
         <div className={styles.buttomstyle}>
